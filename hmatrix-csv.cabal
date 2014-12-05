@@ -3,9 +3,11 @@ version:             0.1.0.0
 synopsis:            CSV encoding and decoding for hmatrix.
 description:
     Aims to provide easy CSV encoding and decoding of matrices.
-    Right now only matrices of type 'Double' are supported. 
+    Right now only matrices of type 'Double' are supported.
+Homepage:            https://github.com/grtlr/hmatrix-csv
 license:             BSD3
 license-file:        LICENSE
+bug-reports:         https://github.com/grtlr/hmatrix-csv/issues
 author:              Jochen Görtler
 maintainer:          lyzrd17@gmail.com
 copyright:           (c) 2014 Jochen Görtler
