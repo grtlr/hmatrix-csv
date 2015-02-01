@@ -2,10 +2,12 @@ language: haskell
 
 ghc:
     - 7.8
-    - 7.6
+
+before_install:
+    - sudo apt-get install libblas-dev libatlas-dev liblapack-dev
 
 install:
-    cabal install --only-dependencies
+    - cabal install --only-dependencies
 
 script:
-    cabal build
+    - cabal build
