@@ -1,3 +1,7 @@
+hmatrix-csv
+===========
+[![Build Status](https://travis-ci.org/grtlr/hmatrix-csv.svg)](https://travis-ci.org/grtlr/hmatrix-csv)
+
 Information
 -----------
 
