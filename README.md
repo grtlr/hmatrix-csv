@@ -1,6 +1,6 @@
 hmatrix-csv
 ===========
-[![Build Status](https://travis-ci.org/grtlr/hmatrix-csv.svg)](https://travis-ci.org/grtlr/hmatrix-csv)
+[![Build Status](https://travis-ci.org/grtlr/hmatrix-csv.svg)](https://travis-ci.org/grtlr/hmatrix-csv) [![Hackage](https://img.shields.io/hackage/v/hmatrix-csv.svg?style=flat)](https://hackage.haskell.org/package/hmatrix-csv)
 
 Information
 -----------
