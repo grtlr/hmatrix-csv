@@ -1,11 +1,19 @@
+sudo: false
 language: haskell
+cache: apt
+
+addons:
+  apt_packages:
+      - libblas-dev
+      - libatlas-dev
+      - liblapack-dev
 
 ghc:
     - 7.8
 
 install:
-    - sudo apt-get install libblas-dev libatlas-dev liblapack-dev
+    - cabal update
     - cabal install --only-dependencies
 
 script:
-    - cabal build
+    - cabal configure && cabal build
