@@ -5,7 +5,7 @@ hmatrix-csv
 Information
 -----------
 
-I'm quite new to haskell programming. If you have any advice or want to help improve this library, feel free to file an issue or send a pull-request on github. Every feedback is appreciated.
+If you want to help improve this library, feel free to file an issue or send a pull-request on github. Every feedback is appreciated.
 As of now only matrices of type Double are supported.
 
 Example
