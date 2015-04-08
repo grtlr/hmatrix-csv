@@ -39,16 +39,21 @@ import Data.Char (ord)
 -- > "1.0,2.0,3.0\r\n4.0,5.0,6.0\r\n7.0,8.0,9.0\r\n"
 
 -- $info
--- I'm quite new to haskell programming. If you have any advice or want to help improve this library, feel free to file an issue or send a pull-request on github. Every feedback is appreciated.
+-- If you want to help improve this library, feel free to file an issue or send a pull-request on github. Every feedback is appreciated.
 -- As of now only matrices of type Double are supported.
 
 -- | Decodes a matrix.
-decodeMatrix :: HasHeader -> ByteString -> Matrix Double
-decodeMatrix header s = decodeMatrixWith header ',' s
+decodeMatrix :: HasHeader       -- ^ From Data.Csv: specify if the CSV string has a header
+             -> ByteString      -- ^ The 'ByteString' containing the CSVs
+             -> Matrix Double   -- ^ The parsed 'Matrix'
+decodeMatrix header = decodeMatrixWith header ','
 
 -- | Decodes a matrix from ByteString and additionally allow
 -- to specify the delimter which was used.
-decodeMatrixWith :: HasHeader -> Char -> ByteString -> Matrix Double
+decodeMatrixWith :: HasHeader       -- ^ From Data.Csv: specify if the CSV string has a header
+                 -> Char            -- ^ The delimiter
+                 -> ByteString      -- ^ The 'ByteString' containing the CSVs
+                 -> Matrix Double   -- ^ The parsed 'Matrix'
 decodeMatrixWith header del s =
     case decodeWith opt header s of
         Left err -> error err
@@ -59,11 +64,14 @@ rowToRecord :: [Double] -> Record
 rowToRecord x = record $ map (C.pack . show) x
 
 -- | Encodes a matrix with comma as delimiter.
-encodeMatrix :: Matrix Double -> ByteString
-encodeMatrix m = encodeMatrixWith ',' m
+encodeMatrix :: Matrix Double   -- ^ The 'Matrix' to encode
+             -> ByteString      -- ^ The resulting 'ByteString'
+encodeMatrix = encodeMatrixWith ','
 
 -- | Encodes a matrix but allows to specify a delimiter.
-encodeMatrixWith :: Char -> Matrix Double -> ByteString
+encodeMatrixWith :: Char            -- ^ The delimiter for separating the values
+                 -> Matrix Double   -- ^ The 'Matrix' to encode
+                 -> ByteString      -- ^ The resulting 'ByteString'
 encodeMatrixWith del m = encodeWith opt s
     where opt = defaultEncodeOptions { encDelimiter = fromIntegral (ord del) }
           s = map rowToRecord $ toLists m
