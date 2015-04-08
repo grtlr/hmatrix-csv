@@ -9,7 +9,8 @@ addons:
       - liblapack-dev
 
 ghc:
-    - 7.8
+    - '7.8'
+    - '7.10'
 
 install:
     - cabal update
